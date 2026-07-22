@@ -1,4 +1,5 @@
-import { Code, MessageCircle, Server, GraduationCap } from "lucide-react";
+import { Code, MessageCircle, Server, GraduationCap, Briefcase, MapPin, FileText, Download } from "lucide-react";
+import LocationMap from "./LocationMap";
 
 export default function Hero({ data }) {
   const h = data.hero;
@@ -36,6 +37,12 @@ export default function Hero({ data }) {
                   {h.education}
                 </div>
               )}
+              {h.internBadge && (
+                <div className="inline-flex items-center gap-2 px-3 py-1 glass-card rounded-full font-label-sm text-label-sm text-primary">
+                  <Briefcase className="w-3.5 h-3.5" />
+                  {h.internBadge}
+                </div>
+              )}
             </div>
             <h1 className="font-headline-xl text-headline-xl md:text-[80px] text-[48px] text-primary-fixed drop-shadow-[0_0_15px_rgba(0,240,255,0.3)]">
               {h.headlineLine1} <br />
@@ -61,6 +68,27 @@ export default function Hero({ data }) {
               <MessageCircle className="w-5 h-5" />
               {h.secondaryCta.label}
             </a>
+            {h.resumeUrl && (
+              <>
+                <a
+                  href={h.resumeUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="border border-white/20 text-secondary bg-surface/50 px-6 py-3 font-label-tech text-label-tech rounded flex items-center gap-2 hover:bg-white/10 transition-all duration-300 backdrop-blur-md"
+                >
+                  <FileText className="w-5 h-5" />
+                  View Resume
+                </a>
+                <a
+                  href={h.resumeUrl}
+                  download="Shivam_Rai_Resume.pdf"
+                  className="border border-white/20 text-secondary bg-surface/50 px-6 py-3 font-label-tech text-label-tech rounded flex items-center gap-2 hover:bg-white/10 transition-all duration-300 backdrop-blur-md"
+                >
+                  <Download className="w-5 h-5" />
+                  Download
+                </a>
+              </>
+            )}
           </div>
         </div>
 
@@ -113,6 +141,21 @@ export default function Hero({ data }) {
           >
             <Server className="text-primary-container w-6 h-6" />
           </div>
+
+          {/* Location map card */}
+          {data.contact?.location && (
+            <div className="glass-card mt-4 rounded-xl overflow-hidden h-32 relative">
+              <LocationMap
+                query={data.contact.mapQuery || data.contact.location}
+                className="w-full h-full"
+                label={`Map of ${data.contact.location}`}
+              />
+              <div className="absolute bottom-2 left-2 flex items-center gap-1 px-2 py-1 rounded bg-background/70 backdrop-blur-md font-label-sm text-label-sm text-primary pointer-events-none">
+                <MapPin className="w-3 h-3" />
+                {data.contact.location}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>

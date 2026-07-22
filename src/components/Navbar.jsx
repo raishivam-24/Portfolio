@@ -1,6 +1,8 @@
-import { Terminal } from "lucide-react";
+import { Terminal, FileText } from "lucide-react";
 
 export default function Navbar({ data }) {
+  const resumeUrl = data.hero?.resumeUrl;
+
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-xl border-b border-white/10 shadow-[0_0_20px_rgba(0,219,233,0.1)] transition-all duration-300 ease-out">
       <div className="flex justify-between items-center px-margin-mobile md:px-margin-desktop py-unit max-w-container-max mx-auto h-[72px]">
@@ -28,9 +30,18 @@ export default function Navbar({ data }) {
         </div>
 
         <div className="flex items-center gap-4">
-          <button className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors">
-            <Terminal className="text-primary w-5 h-5" />
-          </button>
+          {resumeUrl && (
+            <a
+              href={resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Resume"
+              className="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+              title="View Resume"
+            >
+              <FileText className="text-primary w-5 h-5" />
+            </a>
+          )}
           <a
             href={data.nav.ctaHref}
             className="hidden md:flex bg-primary-container text-background font-label-tech text-label-tech px-6 py-2 rounded font-bold hover:glow-effect transition-shadow"

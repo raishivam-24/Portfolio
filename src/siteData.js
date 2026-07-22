@@ -29,6 +29,7 @@ const siteData = {
     status: "AVAILABLE FOR FULL-STACK ROLES // OPEN TO WORK",
     education: "B.Tech CSE, KIET Group of Institutions (CGPA 8.4)",
     internBadge: "Full Stack Developer Intern @ SN Verse Software Solution",
+    resumeUrl: "/resume.pdf",
     headlineLine1: "Building Production-Grade",
     headlineLine2: "MERN Applications",
     subtitle:
