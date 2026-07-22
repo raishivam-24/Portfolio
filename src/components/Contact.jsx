@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Mail, MapPin, Phone, Network, Send, Code, Share2 } from "lucide-react";
-import LocationMap from "./LocationMap.jsx";
+import LocationMap from "./LocationMap";
 
 // Builds a Gmail web-compose link (opens Gmail in browser, prefilled to this address)
 const gmailComposeHref = (email) =>

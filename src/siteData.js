@@ -136,7 +136,7 @@ const siteData = {
         title: "SkillBridge AI",
         status: "Active",
         // Drop your screenshot at public/assets/projects/skillbridge.png
-        image: "public/assets/projects/skillbridge.png",
+        image: "/assets/projects/skillbridge.png",
         alt: "SkillBridge AI — intelligent skill-based hiring platform",
         tags: ["React", "Node.js", "Express", "MongoDB", "OpenAI API"],
         description:
